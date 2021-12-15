@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<title>Login</title>
+	<img style="text-align:center;" src='static/images/th.jpg' />
+	<h1>Login In</h1>
+	<form action="" method="post">
+	
+	{{ form.hidden_tag() }}
+	
+				{% for error in form.username.errors %}
+	         		<div style= color:red >{{ error }}</div>
+	      		{% endfor %}
+	      		{{ form.hidden_tag() }}
+	        <p>
+	            {{ form.username.label }}<br>
+	            {{ form.username(size=20) }}
+	        </p>
+	        
+	        <p>
+	            {{ form.password.label }}<br>
+	            {{ form.password(size=20) }} 
+	        </p>
+	        
+	        <p>{{ form.submit() }}</p>
+ 
+ 		</table>
+ 		<hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        
+    			<h3>Do not have an account?<a href="register.html"/>Register</h3>
+    			<h5>Go to <a href="index.html">Home_Page</a>
+    			</p>
+ 			
+ 		</form>
+</html>
